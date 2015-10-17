@@ -7,19 +7,19 @@ minetest.register_node('roofblocks:roofclay', {
 })
 
 minetest.register_node('roofblocks:roofslates', {
-	description = 'Slates roof',
+	description = 'Slates Roof',
 	tiles = {'roofblocks_slate.png'},
 	groups = {choppy=1,oddly_breakable_by_hand=2,flammable=3},
 })
 
 minetest.register_node('roofblocks:roofsteel', {
-	description = 'Steel sheets roof',
+	description = 'Steel Sheets Roof',
 	tiles = {'roofblocks_steel.png'},
 	groups = {choppy=1,oddly_breakable_by_hand=2},
 })
 
 minetest.register_node('roofblocks:roofwood', {
-	description = 'Wooden tiles roof',
+	description = 'Wooden Tiles Roof',
 	tiles = {'roofblocks_wood.png'},
 	groups = {choppy=1,oddly_breakable_by_hand=2,flammable=3},
 })
