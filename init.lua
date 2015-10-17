@@ -1,31 +1,31 @@
-roof_blocks = {}
+roofblocks = {}
 
-minetest.register_node("roof_blocks:roofclay", {
+minetest.register_node("roofblocks:roofclay", {
 	description = "Clay tiles roof",
-	tiles = {"roof_blocks_clay.png"},
+	tiles = {"roofblocks_clay.png"},
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 })
 
-minetest.register_node("roof_blocks:roofslates", {
+minetest.register_node("roofblocks:roofslates", {
 	description = "Slates roof",
-	tiles = {"roof_blocks_slate.png"},
+	tiles = {"roofblocks_slate.png"},
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 })
 
-minetest.register_node("roof_blocks:roofsteel", {
+minetest.register_node("roofblocks:roofsteel", {
 	description = "Steel sheets roof",
-	tiles = {"roof_blocks_steel.png"},
+	tiles = {"roofblocks_steel.png"},
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 })
 
-minetest.register_node("roof_blocks:roofwood", {
+minetest.register_node("roofblocks:roofwood", {
 	description = "Wooden tiles roof",
-	tiles = {"roof_blocks_wood.png"},
+	tiles = {"roofblocks_wood.png"},
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 })
 
 minetest.register_craft({
-	output = 'roof_blocks:roofclay 2',
+	output = 'roofblocks:roofclay 2',
 	recipe = {
 		{'default:clay_brick', 'default:clay_brick', ''},
 		{'default:stick', 'default:stick', ''},
@@ -34,7 +34,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'roof_blocks:roofslates 2',
+	output = 'roofblocks:roofslates 2',
 	recipe = {
 		{'default:stone', 'default:stone', ''},
 		{'default:stick', 'default:stick', ''},
@@ -43,7 +43,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'roof_blocks:roofsteel 2',
+	output = 'roofblocks:roofsteel 2',
 	recipe = {
 		{'default:steel_ingot', 'default:steel_ingot', ''},
 		{'default:stick', 'default:stick', ''},
@@ -52,7 +52,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'roof_blocks:roofwood 2',
+	output = 'roofblocks:roofwood 2',
 	recipe = {
 		{'default:wood', 'default:wood', ''},
 		{'default:stick', 'default:stick', ''},
@@ -61,11 +61,11 @@ minetest.register_craft({
 })
 
 if stairsplus then
-	print ('[roof_blocks] Stairplus!')
-	function roof_blocks.register_stairsplus(node) 
-		local ndef = minetest.registered_nodes['roof_blocks:'..node]
+	print ('[roofblocks] Stairplus!')
+	function roofblocks.register_stairsplus(node) 
+		local ndef = minetest.registered_nodes['roofblocks:'..node]
 		if ndef then
-			stairsplus:register_all("roof_blocks", node, 'roof_blocks:'..node, {
+			stairsplus:register_all("roofblocks", node, 'roofblocks:'..node, {
 				description = ndef.description,
 				drop = ndef.drop,
 				groups = ndef.groups,
@@ -76,9 +76,9 @@ if stairsplus then
 		end
 	end
 
-	roof_blocks.register_stairsplus('roofclay')
-	roof_blocks.register_stairsplus('roofslates')
-	roof_blocks.register_stairsplus('roofsteel')
-	roof_blocks.register_stairsplus('roofwood')
+	roofblocks.register_stairsplus('roofclay')
+	roofblocks.register_stairsplus('roofslates')
+	roofblocks.register_stairsplus('roofsteel')
+	roofblocks.register_stairsplus('roofwood')
 end
 
