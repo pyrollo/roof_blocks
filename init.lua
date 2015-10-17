@@ -1,27 +1,27 @@
 roofblocks = {}
 
-minetest.register_node("roofblocks:roofclay", {
-	description = "Clay tiles roof",
-	tiles = {"roofblocks_clay.png"},
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+minetest.register_node('roofblocks:roofclay', {
+	description = 'Clay Tiles Roof',
+	tiles = {'roofblocks_clay.png'},
+	groups = {choppy=1,oddly_breakable_by_hand=2,flammable=3},
 })
 
-minetest.register_node("roofblocks:roofslates", {
-	description = "Slates roof",
-	tiles = {"roofblocks_slate.png"},
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+minetest.register_node('roofblocks:roofslates', {
+	description = 'Slates roof',
+	tiles = {'roofblocks_slate.png'},
+	groups = {choppy=1,oddly_breakable_by_hand=2,flammable=3},
 })
 
-minetest.register_node("roofblocks:roofsteel", {
-	description = "Steel sheets roof",
-	tiles = {"roofblocks_steel.png"},
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+minetest.register_node('roofblocks:roofsteel', {
+	description = 'Steel sheets roof',
+	tiles = {'roofblocks_steel.png'},
+	groups = {choppy=1,oddly_breakable_by_hand=2},
 })
 
-minetest.register_node("roofblocks:roofwood", {
-	description = "Wooden tiles roof",
-	tiles = {"roofblocks_wood.png"},
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+minetest.register_node('roofblocks:roofwood', {
+	description = 'Wooden tiles roof',
+	tiles = {'roofblocks_wood.png'},
+	groups = {choppy=1,oddly_breakable_by_hand=2,flammable=3},
 })
 
 minetest.register_craft({
@@ -61,18 +61,26 @@ minetest.register_craft({
 })
 
 if stairsplus then
-	print ('[roofblocks] Stairplus!')
+	print ('[roofblocks] Stairplus registrations')
 	function roofblocks.register_stairsplus(node) 
 		local ndef = minetest.registered_nodes['roofblocks:'..node]
 		if ndef then
-			stairsplus:register_all("roofblocks", node, 'roofblocks:'..node, {
-				description = ndef.description,
-				drop = ndef.drop,
-				groups = ndef.groups,
-				sounds = ndef.sounds,
-				tiles = ndef.tiles,
-				sunlight_propagates = false
-			})
+			local def = {}
+			def.description = ndef.description
+			def.drop = ndef.drop
+			def.sounds = ndef.sounds
+			def.tiles = ndef.tiles
+			def.sunlight_propagates = true
+			def.light_source = ndef.light_source
+
+			-- Group has to be copied or it will be added a 'not in creative inventory'
+			def.groups = {}
+			for k, v in pairs(ndef.groups)
+			do
+				def.groups[k] = v
+			end
+
+			stairsplus:register_all('roofblocks', node, 'roofblocks:'..node, def)
 		end
 	end
 
