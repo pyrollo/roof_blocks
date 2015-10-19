@@ -28,7 +28,7 @@ minetest.register_craft({
 	output = 'roofblocks:roofclay 2',
 	recipe = {
 		{'default:clay_brick', 'default:clay_brick', ''},
-		{'default:stick', 'default:stick', ''},
+		{'group:stick', 'group:stick', ''},
 		{'', '', ''},
 	}
 })
@@ -37,7 +37,7 @@ minetest.register_craft({
 	output = 'roofblocks:roofslates 2',
 	recipe = {
 		{'default:stone', 'default:stone', ''},
-		{'default:stick', 'default:stick', ''},
+		{'group:stick', 'group:stick', ''},
 		{'', '', ''},
 	}
 })
@@ -46,7 +46,7 @@ minetest.register_craft({
 	output = 'roofblocks:roofsteel 2',
 	recipe = {
 		{'default:steel_ingot', 'default:steel_ingot', ''},
-		{'default:stick', 'default:stick', ''},
+		{'group:stick', 'group:stick', ''},
 		{'', '', ''},
 	}
 })
@@ -54,8 +54,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'roofblocks:roofwood 2',
 	recipe = {
-		{'default:wood', 'default:wood', ''},
-		{'default:stick', 'default:stick', ''},
+		{'group:wood', 'group:wood', ''},
+		{'group:stick', 'group:stick', ''},
 		{'', '', ''},
 	}
 })
